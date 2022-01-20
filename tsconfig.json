@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "jsx": "react",
+    "target": "es6",
+    "module": "ES6",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "declaration": true
+  },
+  "include": ["./src/index.ts"],
+  "exclude": ["node_modules"]
+}
