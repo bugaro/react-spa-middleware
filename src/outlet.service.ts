@@ -13,10 +13,9 @@ export enum OutletAction {
 class OutletService {
   resolveOutletName(toState: string, fromState: string): string {
     /**
-     * Check route names by default return main outlet name
+     * If fromState not a string return main outlet name
      */
-    if (typeof toState !== 'string') return mainOutlet;
-    if (typeof fromState !== 'string') return mainOutlet;
+    if (typeof fromState !== 'string' || typeof toState !== 'string') return mainOutlet;
     /**
      * Split route names to segments for nested view
      * @example 'app.home.users'
@@ -42,8 +41,8 @@ class OutletService {
     /**
      * Return add action if fromState null
      */
-    if (typeof toState !== 'string') return OutletAction.add;
     if (typeof fromState !== 'string') return OutletAction.add;
+    if (typeof toState !== 'string') return OutletAction.delete;
     /**
      * Split route names to segments for nested view
      * @example 'app.home.users'
