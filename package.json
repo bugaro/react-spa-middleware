@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
-    "test": "jest --watchAll",
+    "test": "jest --coverage",
     "test:watch": "jest --watchAll",
     "prepublishOnly": "yarn build"
   },

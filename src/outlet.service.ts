@@ -11,6 +11,12 @@ export enum OutletAction {
   delete = 'delete',
 }
 class OutletService {
+  /**
+   * @description Define outlet name to render view from state
+   * @param toState 'app.home.users'
+   * @param fromState 'app.home.cars'
+   * @returns 'app.home'
+   */
   resolveOutletName(toState: string, fromState: string): string {
     /**
      * If fromState not a string return main outlet name
@@ -37,6 +43,12 @@ class OutletService {
       }
     }
   }
+  /**
+   * @description Define action for outlet
+   * @param toState 'app.home.users'
+   * @param fromState 'app.home'
+   * @returns 'add' action
+   */
   getAction(toState: string, fromState: string): string {
     /**
      * Return add action if fromState null

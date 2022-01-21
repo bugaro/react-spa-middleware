@@ -1,4 +1,10 @@
 class RouteService {
+  /**
+   * @description Define nested states in route name
+   * @param toState 'app.home.users'
+   * @param fromState 'app'
+   * @returns ['app.home','app.home.users']
+   */
   resolveState(toState: string, fromState: string | null): string[] {
     if (typeof toState !== 'string') return [];
     /**
