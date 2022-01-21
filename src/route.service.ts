@@ -1,3 +1,5 @@
+import { AppRoutes } from './@types/routes.type';
+
 class RouteService {
   /**
    * @description Define nested states in route name
@@ -36,6 +38,15 @@ class RouteService {
         return this.resolveFromState(currState, nextState);
       }
     }
+  }
+  /**
+   * @description Get routes by route name
+   * @param routeNames ['app', 'app.home']
+   * @param routes [{name: 'app', ...}, ...]
+   * @returns [{name: 'app', ...}, {name: 'app.home', ...}]
+   */
+  getResolvedRoutes(routeNames: string[], routes: AppRoutes): AppRoutes {
+    return routes.filter((route) => routeNames.includes(route.name));
   }
   private resolveAllState(state: string[]): string[] {
     /**
