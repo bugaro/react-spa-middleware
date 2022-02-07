@@ -9,11 +9,10 @@ class RouteService {
    */
   resolveState(toState: string, fromState: string | null): string[] {
     if (typeof toState !== 'string') return [];
+    const to = toState.split('.');
     /**
      * If fromState not a string return state from top segment
      */
-
-    const to = toState.split('.');
     if (typeof fromState !== 'string') {
       return this.resolveAllState(to);
     }

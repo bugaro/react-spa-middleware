@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { combineLatestWith, concatAll, forkJoin, from, map, of, reduce } from 'rxjs';
+import { combineLatestWith, concatAll, filter, forkJoin, from, map, of, reduce } from 'rxjs';
 import { AppRoutes, ComponentPromiseType } from './@types/routes.type';
 import { Noop } from './components/noop.component';
 import { viewBuilder } from './viewBuilder';
@@ -32,7 +32,8 @@ class ComponentService {
       }),
       reduce<IViewParams, FC<any>>((acc, view) => {
         return this.vb(acc as FC<any>, view);
-      }, undefined)
+      }, undefined),
+      filter((value) => typeof value === 'function')
     );
   }
   private getComponentPromise(component: AppRoutes[number]['component']): ReturnType<AppRoutes[number]['component']> {
