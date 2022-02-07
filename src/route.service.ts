@@ -75,5 +75,4 @@ class RouteService {
     return states;
   }
 }
-
 export const routeService = new RouteService();

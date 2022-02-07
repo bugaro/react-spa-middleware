@@ -1,3 +1,6 @@
+import { FC } from 'react';
+import { Observable, Subject } from 'rxjs';
+
 /**
  * Main outlet name
  * @example <MainOutlet />
@@ -11,6 +14,7 @@ export enum OutletAction {
   delete = 'delete',
 }
 class OutletService {
+  private stream$ = new Subject<IOutletOrder>();
   /**
    * @description Define outlet name to render view from state
    * @param toState 'app.home.users'
@@ -79,5 +83,23 @@ class OutletService {
       }
     }
   }
+  /**
+   * @description Notify outlets about new order
+   * @param data IOutletOrder
+   */
+  notifyOutlets(data: IOutletOrder): void {
+    this.stream$.next(data);
+  }
+  /**
+   * @description Outlet subscription to data stream
+   */
+  dataStream(): Observable<IOutletOrder> {
+    return this.stream$.asObservable();
+  }
 }
 export const outletService = new OutletService();
+export interface IOutletOrder {
+  action: keyof typeof OutletAction;
+  outletName: string;
+  component: FC<any>;
+}
