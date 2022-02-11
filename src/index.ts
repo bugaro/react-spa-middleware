@@ -1,3 +1,3 @@
-export { IOutlet } from './@types/outlet.type';
-export { AppRoutes } from './@types/routes.type';
+export type { IOutlet } from './@types/outlet.type';
+export type { AppRoutes } from './@types/routes.type';
 export { reactSpaMiddleware } from './reactSpa.middleware';

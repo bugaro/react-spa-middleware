@@ -17,27 +17,34 @@ class ComponentService {
   getComponent(routes: AppRoutes, param: Record<string, string> = {}) {
     const routesReversed = routes.reverse();
 
-    return from(routesReversed).pipe(
-      map((route) => {
-        const { component, resolve } = route;
-        const data = typeof resolve === 'function' ? resolve(param) : this.dataNoop;
-        const componentPromise = this.getComponentPromise(component);
+    return from(routesReversed)
+      .pipe(
+        map((route) => {
+          const { component, resolve } = route;
+          const data = typeof resolve === 'function' ? resolve(param) : this.dataNoop;
+          const componentPromise = this.getComponentPromise(component);
 
-        return from(componentPromise).pipe(combineLatestWith(forkJoin(data), of(route.name)));
-      }),
-      concatAll(),
-      map(([component, data, name]) => {
-        const d = data[this.EMPTY] === this.EMPTY ? {} : data;
-        return new ViewParamsImpl(component.default, d, name);
-      }),
-      reduce<IViewParams, FC<any>>((acc, view) => {
-        return this.vb(acc as FC<any>, view);
-      }, undefined),
-      filter((value) => typeof value === 'function')
-    );
+          return from(componentPromise).pipe(combineLatestWith(forkJoin(data), of(route.name)));
+        }),
+        concatAll(),
+      )
+      .pipe(
+        map(([component, data, name]) => {
+          const d = data[this.EMPTY] === this.EMPTY ? {} : data;
+          return new ViewParamsImpl(component.default, d, name);
+        }),
+        reduce<IViewParams, FC<any>>((acc, view) => {
+          return this.vb(acc as FC<any>, view);
+        }, undefined!),
+        filter<FC<any>>((value) => typeof value === 'function'),
+      );
   }
-  private getComponentPromise(component: AppRoutes[number]['component']): ReturnType<AppRoutes[number]['component']> {
-    return typeof component === 'function' ? component() : Promise.resolve({ default: Noop } as ComponentPromiseType);
+  private getComponentPromise(
+    component: AppRoutes[number]['component'],
+  ): ReturnType<AppRoutes[number]['component']> {
+    return typeof component === 'function'
+      ? component()
+      : Promise.resolve({ default: Noop } as ComponentPromiseType);
   }
 }
 export const componentService = new ComponentService(viewBuilder);

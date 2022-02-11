@@ -37,6 +37,7 @@ class RouteService {
         return this.resolveFromState(currState, nextState);
       }
     }
+    return [];
   }
   /**
    * @description Get routes by route name

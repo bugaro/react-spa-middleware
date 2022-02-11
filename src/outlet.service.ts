@@ -46,6 +46,7 @@ class OutletService {
         return to.slice(0, i).join('.');
       }
     }
+    return mainOutlet;
   }
   /**
    * @description Define action for outlet
@@ -82,6 +83,7 @@ class OutletService {
         return OutletAction.add;
       }
     }
+    return OutletAction.delete;
   }
   /**
    * @description Notify outlets about new order

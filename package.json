@@ -5,6 +5,8 @@
   "types": "dist/index.d.ts",
   "license": "MIT",
   "scripts": {
+    "format": "prettier --write .",
+    "ts": "tsc --noEmit --project ./tsconfig.json",
     "build": "rollup -c",
     "test": "jest --coverage",
     "test:watch": "jest --watchAll",
@@ -27,6 +29,7 @@
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "jest": "^27.4.5",
+    "prettier": "^2.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rollup": "^2.62.0",
