@@ -53,7 +53,7 @@ class OutletService {
    * @param fromState 'app.home'
    * @returns 'add' action
    */
-  getAction(toState: string, fromState: string): string {
+  getAction(toState: string, fromState: string): keyof typeof OutletAction {
     /**
      * Return add action if fromState null
      */
