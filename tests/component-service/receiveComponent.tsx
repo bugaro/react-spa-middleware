@@ -62,7 +62,7 @@ export const routes: AppRoutes = [
     path: '/cars/:model',
     component: () => importComponent(Cars),
     resolve: (params) => {
-      return { data: Promise.resolve(params.model) };
+      return { data: Promise.resolve(params!.model) };
     },
   },
 ];
@@ -73,10 +73,14 @@ export const cases = [
     home: 'home',
     users: 'users',
   }),
-  new TestCaseImpl({ state: routes.slice(3, routes.length), params: { model: 'bmw' } }, ['Data', 'bmw'], {
-    data: 'data',
-    cars: 'cars',
-  }),
+  new TestCaseImpl(
+    { state: routes.slice(3, routes.length), params: { model: 'bmw' } },
+    ['Data', 'bmw'],
+    {
+      data: 'data',
+      cars: 'cars',
+    },
+  ),
 ];
 
 function importComponent(component: FC<any>): Promise<ComponentPromiseType> {

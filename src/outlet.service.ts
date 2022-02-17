@@ -21,7 +21,10 @@ class OutletService {
    * @param fromState 'app.home.cars'
    * @returns 'app.home'
    */
-  resolveOutletName(toState: string, fromState: string): string {
+  resolveOutletName(
+    toState: string | null | undefined,
+    fromState: string | null | undefined,
+  ): string {
     /**
      * If fromState not a string return main outlet name
      */
@@ -54,7 +57,10 @@ class OutletService {
    * @param fromState 'app.home'
    * @returns 'add' action
    */
-  getAction(toState: string, fromState: string): keyof typeof OutletAction {
+  getAction(
+    toState: string | null | undefined,
+    fromState: string | null | undefined,
+  ): keyof typeof OutletAction {
     /**
      * Return add action if fromState null
      */

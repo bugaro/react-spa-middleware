@@ -19,7 +19,7 @@ describe('COMPONENT SERVICE', () => {
 
     render(<Component />);
 
-    const el = screen.getByTestId(ids.app);
+    const el = screen.getByTestId(ids!.app);
     expect(el.textContent).toBe(output);
   });
   test('Receive component with nested view', async () => {
@@ -37,9 +37,9 @@ describe('COMPONENT SERVICE', () => {
 
     render(<Component />);
 
-    const app = screen.getByTestId(ids.app);
-    const home = screen.getByTestId(ids.home);
-    const users = screen.getByTestId(ids.users);
+    const app = screen.getByTestId(ids!.app);
+    const home = screen.getByTestId(ids!.home);
+    const users = screen.getByTestId(ids!.users);
     expect([app.textContent, home.textContent, users.textContent]).toEqual(output);
   });
   test('Receive component with nested view and data resolver', async () => {
@@ -57,8 +57,8 @@ describe('COMPONENT SERVICE', () => {
 
     render(<Component />);
 
-    const data = screen.getByTestId(ids.data);
-    const cars = screen.getByTestId(ids.cars);
+    const data = screen.getByTestId(ids!.data);
+    const cars = screen.getByTestId(ids!.cars);
     expect([data.textContent, cars.textContent]).toEqual(output);
   });
 });

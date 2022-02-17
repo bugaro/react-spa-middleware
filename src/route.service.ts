@@ -7,7 +7,7 @@ class RouteService {
    * @param fromState 'app'
    * @returns ['app.home','app.home.users']
    */
-  resolveState(toState: string, fromState: string | null): string[] {
+  resolveState(toState: string | null | undefined, fromState: string | null | undefined): string[] {
     if (typeof toState !== 'string') return [];
     const to = toState.split('.');
     /**

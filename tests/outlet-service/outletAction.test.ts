@@ -6,35 +6,35 @@ describe('OUTLET SERVICE', () => {
     const test = cases[0];
     const { toState, fromState } = test.input;
 
-    const result = outletService.getAction(toState.name, fromState.name);
+    const result = outletService.getAction(toState?.name, fromState?.name);
     expect(result).toBe(test.output);
   });
   test(`Return add action if top segments different`, () => {
     const test = cases[1];
     const { toState, fromState } = test.input;
 
-    const result = outletService.getAction(toState.name, fromState.name);
+    const result = outletService.getAction(toState?.name, fromState?.name);
     expect(result).toBe(test.output);
   });
   test(`Return add action for nested view`, () => {
     const test = cases[2];
     const { toState, fromState } = test.input;
 
-    const result = outletService.getAction(toState.name, fromState.name);
+    const result = outletService.getAction(toState?.name, fromState?.name);
     expect(result).toBe(test.output);
   });
   test(`Return add action for nested view when segment different`, () => {
     const test = cases[3];
     const { toState, fromState } = test.input;
 
-    const result = outletService.getAction(toState.name, fromState.name);
+    const result = outletService.getAction(toState?.name, fromState?.name);
     expect(result).toBe(test.output);
   });
   test(`Return delete action for deletion nested view`, () => {
     const test = cases[4];
     const { toState, fromState } = test.input;
 
-    const result = outletService.getAction(toState.name, fromState.name);
+    const result = outletService.getAction(toState?.name, fromState?.name);
     expect(result).toBe(test.output);
   });
 });
