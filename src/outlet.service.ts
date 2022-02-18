@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { OutletOrderImpl } from './outletOrderImpl';
 
 /**
  * Main outlet name
@@ -14,7 +15,9 @@ export enum OutletAction {
   delete = 'delete',
 }
 class OutletService {
-  private stream$ = new Subject<IOutletOrder>();
+  private stream$ = new BehaviorSubject<IOutletOrder>(
+    new OutletOrderImpl(OutletAction.delete, mainOutlet),
+  );
   /**
    * @description Define outlet name to render view from state
    * @param toState 'app.home.users'

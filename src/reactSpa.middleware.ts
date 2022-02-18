@@ -18,7 +18,7 @@ export const reactSpaMiddleware =
       const outletOrder = new OutletOrderImpl(action, outletName);
       outletService.notifyOutlets(outletOrder);
       done();
-    } else {
+    } else if (OutletAction.add) {
       const routeNames = routeService.resolveState(toState.name, fromState.name);
       const resolvedRoutes = routeService.getResolvedRoutes(routeNames, routes);
       componentService.getComponent(resolvedRoutes, toState.params).subscribe((component) => {
