@@ -109,5 +109,5 @@ export const outletService = new OutletService();
 export interface IOutletOrder {
   action: keyof typeof OutletAction;
   outletName: string;
-  component: FC<any>;
+  component?: FC<any>;
 }

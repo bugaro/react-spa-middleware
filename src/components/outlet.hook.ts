@@ -12,12 +12,13 @@ export function useOutlet(name: string, routeComponent: FC | undefined): IUseOut
       .dataStream()
       .pipe(filter((v) => v.outletName === name))
       .subscribe((outletOrder) => {
-        const { action, component: nested } = outletOrder;
+        const { action } = outletOrder;
         if (action === OutletAction.delete) {
           setComponent(() => Noop);
         }
+        const { component: nested } = outletOrder;
         if (action === OutletAction.add) {
-          setComponent(() => nested);
+          setComponent(() => nested as FC<any>);
         }
       });
     return () => {

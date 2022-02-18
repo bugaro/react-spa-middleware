@@ -4,6 +4,6 @@ export class OutletOrderImpl implements IOutletOrder {
   constructor(
     public action: IOutletOrder['action'],
     public outletName: IOutletOrder['outletName'],
-    public component: IOutletOrder['component']
+    public component?: IOutletOrder['component'],
   ) {}
 }
