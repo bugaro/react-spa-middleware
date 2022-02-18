@@ -9,7 +9,8 @@ import { routeService } from './route.service';
 export const reactSpaMiddleware =
   (routes: AppRoutes) =>
   () =>
-  (toState: State, fromState: State, done: DoneFn): void => {
+  (toState: State, _fromState: State, done: DoneFn): void => {
+    const fromState = _fromState ?? {};
     const routeNames = routeService.resolveState(toState.name, fromState.name);
     const resolvedRoutes = routeService.getResolvedRoutes(routeNames, routes);
 
