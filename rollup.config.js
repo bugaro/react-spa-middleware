@@ -9,7 +9,7 @@ export default {
   input: './src/index.ts',
   output: [
     {
-      file: packageJson.main,
+      file: 'dist/index.js',
       format: 'es',
       sourcemap: true,
     },
