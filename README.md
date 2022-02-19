@@ -10,7 +10,7 @@ In react ecosystem I didn't find router with: permission guard, data prefetching
 - your pages(hoc) - lazy.
 - nested view.
 
-about anther capabilities you can read in documentation for __[router5](https://router5.js.org/#docs)__
+about another capabilities you can read in documentation for __[router5](https://router5.js.org/#docs)__
 
 ![](./router-cicle.png)
 
