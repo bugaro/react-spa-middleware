@@ -37,10 +37,23 @@ export const routes: AppRoutes = [
     component: () => import('@pages/home/home.page'), // lazy loading
     resolve: () => {
 	    /**
-	     * myData is a prop name in home.page.tsx component 
+	     * myData is a props name in home.page.tsx component 
 	     */
       return {
         myData: homeService.getList(),
+      };
+    },
+  },
+  {
+	/**
+	 * @example Nested view for home.page.tsx
+	 */
+    name: 'home.garage',
+    path: '/garage',
+    component: () => import('@pages/garage/garage.page'), 
+    resolve: () => {
+      return {
+        data: Promise.resolve('Garage 5x5'),
       };
     },
   },
@@ -93,8 +106,23 @@ import { MainOutlet } from 'react-spa-middleware';
 export function App() {
 	return (
 		//... 
+		/**
+		 * You can have only one 
+		 * main outlet in your app
+		 */
 		<MainOutlet />
 		//...
 	)
+}
+```
+### Nested view - each component that was resolved through routes, will get `Outlet` props
+```typescript
+import { IOutlet } from 'react-spa-middleware';
+
+const Home: FC<IOutlet> = ({Outlet}) => {
+	return <div>
+	<p>Home Page</p>
+	<Outlet /> // Nested view
+	</div>
 }
 ```
