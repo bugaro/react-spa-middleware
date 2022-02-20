@@ -7128,8 +7128,10 @@ react-scripts@5.0.0:
   optionalDependencies:
     fsevents "^2.3.2"
 
-react-spa-middleware@./dist:
-  version "1.0.0"
+react-spa-middleware@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-spa-middleware/-/react-spa-middleware-1.0.2.tgz#ae85e1733e8c577af109410d77893585b4f67bff"
+  integrity sha512-5c5d1SnxOf+M17oViKTEev3IY/Kz6V4alacqMhqWoGxzWPzCEehU1qilAJYN4mvwtAk2szjwgQ7RdRrOvb+Vog==
 
 react@^17.0.2:
   version "17.0.2"
