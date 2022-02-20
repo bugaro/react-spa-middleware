@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "types": "index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "license": "MIT",
   "description": "Middleware for route5, that give you some benefits like: lazy loading, data prefetching, nested view.",
   "repository": {
