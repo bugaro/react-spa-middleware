@@ -15,8 +15,8 @@ jobs:
       - uses: borales/actions-yarn@v2.3.0
         with:
           node-version: 16
-      - run: intall
-      - run: test
+      - cmd: intall
+      - cmd: test
 
   publish-npm:
     needs: build
@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: intall
-      - run: publish
+      - cmd: intall
+      - cmd: publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
