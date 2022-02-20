@@ -40,9 +40,9 @@ export const routes: AppRoutes = [
     path: '/',
     component: () => import('@pages/home/home.page'), // lazy loading
     resolve: () => {
-	    /**
-	     * myData is a props name in home.page.tsx component 
-	     */
+/**
+ * myData is a props name in home.page.tsx component 
+ */
       return {
         myData: homeService.getList(),
       };
@@ -79,9 +79,9 @@ export const initRouter = () => {
     queryParamsMode: 'loose',
   });
   router.usePlugin(browserPlugin());
-  /** 
-   * Add middleware - reactSpaMiddleware
-   */
+/** 
+ * Add middleware - reactSpaMiddleware
+ */
   router.useMiddleware(reactSpaMiddleware(routes));
 
   return router;
@@ -112,13 +112,13 @@ import { MainOutlet } from 'react-spa-middleware';
 
 export function App() {
 	return (
-		//... 
-		/**
-		 * You can have only one 
-		 * main outlet in your app
-		 */
+//... 
+/**
+ * You can have only one 
+ * main outlet in your app
+ */
 		<MainOutlet />
-		//...
+//...
 	)
 }
 ```
