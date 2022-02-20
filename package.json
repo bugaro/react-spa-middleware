@@ -26,9 +26,8 @@
     "format": "prettier --write .",
     "ts": "tsc --noEmit --project ./tsconfig.json",
     "build": "rollup -c",
-    "test": "jest --coverage",
-    "test:watch": "jest --watchAll",
-    "prepublishOnly": "yarn build"
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "peerDependencies": {
     "react": ">=17.0.2",
