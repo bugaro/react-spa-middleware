@@ -19,10 +19,7 @@ export default {
     commonjs(),
     typescript({ tsconfig: 'tsconfig.json' }),
     copy({
-      targets: [
-        { src: 'package.json', dest: 'dist' },
-        { src: 'src/@types', dest: 'dist' },
-      ],
+      targets: [{ src: 'src/@types', dest: 'dist' }],
     }),
   ],
 };

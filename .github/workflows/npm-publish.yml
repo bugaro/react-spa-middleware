@@ -4,8 +4,8 @@
 name: react-spa-middleware
 
 on:
-  push:
-    braches: [main]
+  release:
+    types: [created]
 
 jobs:
   publish-npm:
