@@ -4,8 +4,8 @@
 name: react-spa-middleware
 
 on:
-  release:
-    types: [created]
+  push:
+    braches: [main]
 
 jobs:
   build:
@@ -15,8 +15,8 @@ jobs:
       - uses: borales/actions-yarn@v2.3.0
         with:
           node-version: 16
-      - cmd: intall
-      - cmd: test
+      - run: intall
+      - run: test
 
   publish-npm:
     needs: build
@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - cmd: intall
-      - cmd: publish
+      - run: intall
+      - run: publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
