@@ -16,10 +16,12 @@ about another capabilities you can read in documentation for __[router5](https:/
 
 ## DEPENDENCIES
 - __[router5](https://router5.js.org/)__
+- __[react-router5](https://www.npmjs.com/package/react-router5)__
+- __[router5-plugin-browser](https://www.npmjs.com/package/router5-plugin-browser)__
 - __[rxjs](https://rxjs.dev/)__
 
 ### Install all
-`npm i router5 rxjs react-spa-middleware`
+`npm i router5 react-router5 router5-plugin-browser rxjs react-spa-middleware`
 
 ## HOW TO USE
 ### Route config
