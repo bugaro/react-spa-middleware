@@ -7,7 +7,7 @@ on:
   push:
     braches: [main]
 
-# jobs:
+jobs:
   # build:
   #   runs-on: ubuntu-latest
   #   steps:
@@ -29,5 +29,5 @@ on:
       - uses: borales/actions-yarn@v2.3.0
         with:
           auth-token: ${{secrets.NPM_AUTH_TOKEN}}
-          registry-url: https://registry.npmjs.org
+          registry-url: registry.npmjs.org
           cmd: publish
