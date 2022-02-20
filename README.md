@@ -111,14 +111,12 @@ router.start(() =>
 import { MainOutlet } from 'react-spa-middleware';
 
 export function App() {
-	return (
-//... 
 /**
  * You can have only one 
  * main outlet in your app
  */
+	return (
 		<MainOutlet />
-//...
 	)
 }
 ```
