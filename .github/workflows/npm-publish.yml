@@ -12,22 +12,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: borales/actions-yarn@v2.3.0
         with:
           node-version: 16
-      - run: npm ci
-      - run: npm test
+      - cmd: intall
+      - cmd: test
 
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: borales/actions-yarn@v2.3.0
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish
+      - cmd: intall
+      - cmd: publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}

@@ -27,7 +27,8 @@
     "ts": "tsc --noEmit --project ./tsconfig.json",
     "build": "rollup -c",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "prepublishOnly": "yarn build"
   },
   "peerDependencies": {
     "react": ">=17.0.2",
