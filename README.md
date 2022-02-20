@@ -24,6 +24,8 @@ about another capabilities you can read in documentation for __[router5](https:/
 `npm i router5 react-router5 router5-plugin-browser rxjs react-spa-middleware`
 
 ## HOW TO USE
+
+__[Full example](./example/)__
 ### Route config
 ```typescript
 import { AppRoutes } from 'react-spa-middleware';
@@ -49,9 +51,12 @@ export const routes: AppRoutes = [
   {
 	/**
 	 * @example Nested view for home.page.tsx
+   * If first parameter [ / ] in url, no need to add [ / ] for nested view
+   * But whan first parameter is relative path like [ /home ] you need add [ /garage ] for nested view
 	 */
+
     name: 'home.garage',
-    path: '/garage',
+    path: 'garage',
     component: () => import('@pages/garage/garage.page'), 
     resolve: () => {
       return {
