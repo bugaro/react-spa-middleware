@@ -49,11 +49,11 @@ export const routes: AppRoutes = [
     },
   },
   {
-	/**
-	 * @example Nested view for home.page.tsx
-   * If first parameter [ / ] in url, no need to add [ / ] for nested view
-   * But whan first parameter is relative path like [ /home ] you need add [ /garage ] for nested view
-	 */
+/**
+ * @example Nested view for home.page.tsx
+ * If first parameter [ / ] in url, no need to add [ / ] for nested view
+ * But whan first parameter is relative path like [ /home ] you need add [ /garage ] for nested view
+ */
 
     name: 'home.garage',
     path: 'garage',
